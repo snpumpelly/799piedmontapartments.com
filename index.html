@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>799 Piedmont Apartments — Midtown, Atlanta</title>
+<meta name="description" content="Eleven renovated apartments in Midtown Atlanta's Garden District. Studio, one, and two bedroom homes steps from Piedmont Park and the BeltLine.">
+<style>
+  :root {
+    --black:#14130f; --white:#ffffff; --off-white:#faf8f5;
+    --warm-gray:#e7e2da; --accent:#b0522f; --accent-light:#f7ece6;
+    --brass:#b08d57; --text:#1c1a17; --text-light:#6b665e;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Georgia',serif; color:var(--text); background:var(--white); }
+  img { max-width:100%; display:block; }
+
+  /* ── Nav ── */
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex;
+        justify-content:space-between; align-items:center; padding:20px 48px;
+        background:rgba(255,255,255,0.96); backdrop-filter:blur(8px);
+        border-bottom:1px solid var(--warm-gray); }
+  .nav-logo { font-size:13px; letter-spacing:0.12em; text-transform:uppercase;
+              font-family:'Helvetica Neue',sans-serif; font-weight:500;
+              color:var(--black); text-decoration:none; }
+  .nav-links { display:flex; gap:32px; list-style:none; align-items:center; }
+  .nav-links a { font-family:'Helvetica Neue',sans-serif; font-size:12px;
+                 letter-spacing:0.1em; text-transform:uppercase;
+                 text-decoration:none; color:var(--text-light); transition:color .2s; }
+  .nav-links a:hover { color:var(--black); }
+  .nav-cta { background:var(--accent)!important; color:var(--white)!important;
+             padding:10px 22px; border-radius:2px; font-weight:500; }
+  .nav-cta:hover { background:#8f4126!important; }
+  .nav-toggle { display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--black); }
+
+  /* ── Hero ── */
+  .hero { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; padding-top:72px; }
+  .hero-left { display:flex; flex-direction:column; justify-content:center; padding:80px 64px; background:var(--off-white); }
+  .hero-eyebrow { font-family:'Helvetica Neue',sans-serif; font-size:11px; letter-spacing:0.2em;
+                  text-transform:uppercase; color:var(--accent); margin-bottom:24px; }
+  .hero-title { font-size:clamp(38px,4vw,62px); line-height:1.1; font-weight:normal;
+                letter-spacing:-0.02em; margin-bottom:24px; }
+  .hero-title em { font-style:italic; color:var(--accent); }
+  .hero-sub { font-family:'Helvetica Neue',sans-serif; font-size:16px; line-height:1.7;
+              color:var(--text-light); max-width:420px; margin-bottom:40px; }
+  .hero-actions { display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-primary { background:var(--accent); color:var(--white); padding:14px 32px; text-decoration:none;
+                 font-family:'Helvetica Neue',sans-serif; font-size:12px; letter-spacing:0.1em;
+                 text-transform:uppercase; border-radius:2px; transition:background .2s; }
+  .btn-primary:hover { background:#8f4126; }
+  .btn-outline { border:1px solid var(--black); color:var(--black); padding:14px 32px; text-decoration:none;
+                 font-family:'Helvetica Neue',sans-serif; font-size:12px; letter-spacing:0.1em;
+                 text-transform:uppercase; border-radius:2px; transition:all .2s; }
+  .btn-outline:hover { background:var(--black); color:var(--white); }
+  .hero-right { position:relative; overflow:hidden; min-height:520px; cursor:pointer; }
+  .hero-right img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
+  .hero-badge { position:absolute; bottom:32px; left:32px; background:var(--white); padding:16px 20px;
+                border-radius:4px; box-shadow:0 4px 20px rgba(0,0,0,.12); z-index:3; }
+  .hero-badge p { font-family:'Helvetica Neue',sans-serif; font-size:13px; font-weight:500; }
+  .hero-badge span { font-family:'Helvetica Neue',sans-serif; font-size:11px; color:var(--text-light); }
+
+  /* ── Stats ── */
+  .stats-bar { display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid var(--warm-gray); }
+  .stat { padding:32px 24px; border-right:1px solid var(--warm-gray); text-align:center; }
+  .stat:last-child { border-right:none; }
+  .stat-n { font-size:32px; letter-spacing:-0.02em; color:var(--black); margin-bottom:6px; }
+  .stat-l { font-family:'Helvetica Neue',sans-serif; font-size:11px; letter-spacing:0.12em;
+            text-transform:uppercase; color:var(--text-light); }
+
+  /* ── Section scaffolding ── */
+  section { padding:100px 0; }
+  .si { max-width:1200px; margin:0 auto; padding:0 48px; }
+  .sl { font-family:'Helvetica Neue',sans-serif; font-size:11px; letter-spacing:0.2em;
+        text-transform:uppercase; color:var(--accent); margin-bottom:16px; }
+  .st { font-size:clamp(30px,3vw,46px); font-weight:normal; letter-spacing:-0.02em;
+        line-height:1.15; margin-bottom:24px; }
+  .sb { font-family:'Helvetica Neue',sans-serif; font-size:16px; line-height:1.8;
+        color:var(--text-light); max-width:640px; }
+  .sb + .sb { margin-top:18px; }
+
+  /* ── Building ── */
+  .building { background:var(--off-white); }
+  .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+  .img-stack { position:relative; height:520px; }
+  .img-main { width:75%; height:420px; border-radius:4px; position:absolute; top:0; left:0;
+              overflow:hidden; cursor:pointer; background:linear-gradient(135deg,#d8cfc4,#a89482); }
+  .img-accent { width:55%; height:280px; border-radius:4px; position:absolute; bottom:0; right:0;
+                overflow:hidden; cursor:pointer; box-shadow:0 8px 32px rgba(0,0,0,.15);
+                background:linear-gradient(135deg,var(--brass),#8a6c3f); }
+  .img-main img, .img-accent img { width:100%; height:100%; object-fit:cover; }
+  .ph { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center;
+        justify-content:center; text-align:center; padding:16px; color:rgba(255,255,255,.92); }
+  .ph strong { font-family:'Helvetica Neue',sans-serif; font-size:13px; font-weight:500; }
+  .ph span { display:block; font-family:'Helvetica Neue',sans-serif; font-size:10px;
+             letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.72); margin-top:6px; }
+  .feats { list-style:none; margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:12px 24px; }
+  .feats li { font-family:'Helvetica Neue',sans-serif; font-size:14px; display:flex;
+              align-items:flex-start; gap:12px; line-height:1.5; }
+  .feats li::before { content:''; width:6px; height:6px; background:var(--accent);
+                      border-radius:50%; flex-shrink:0; margin-top:7px; }
+
+  /* ── Neighborhood ── */
+  .nbhd-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:56px; }
+  .nc { background:var(--off-white); padding:38px 30px; transition:background .2s; }
+  .nc:hover { background:var(--accent-light); }
+  .nc h3 { font-size:19px; font-weight:normal; margin-bottom:10px; }
+  .nc p { font-family:'Helvetica Neue',sans-serif; font-size:14px; line-height:1.7; color:var(--text-light); }
+  .nc .dist { font-family:'Helvetica Neue',sans-serif; font-size:11px; letter-spacing:.1em;
+              text-transform:uppercase; color:var(--accent); margin-top:16px; font-weight:500; }
+  .map-wrap { margin-top:56px; height:420px; border-radius:4px; overflow:hidden; border:1px solid var(--warm-gray); }
+  .map-wrap iframe { width:100%; height:100%; border:0; }
+
+  /* ── Dining ── */
+  .dining { background:var(--black); color:var(--white); }
+  .dining .sl { color:var(--brass); }
+  .dining .st { color:var(--white); }
+  .dining .sb { color:rgba(255,255,255,.6); }
+  .d-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2px; margin-top:56px; }
+  .dc { background:#1e1c17; padding:38px 32px; position:relative; overflow:hidden; transition:background .2s; }
+  .dc-walk { font-family:'Helvetica Neue',sans-serif; font-size:11px; letter-spacing:.1em;
+             text-transform:uppercase; color:var(--brass); margin-top:16px; font-weight:500; }
+  .dc:hover { background:#262319; }
+  .dc-tag { font-family:'Helvetica Neue',sans-serif; font-size:10px; letter-spacing:.15em;
+            text-transform:uppercase; color:var(--brass); background:rgba(176,141,87,.15);
+            padding:4px 10px; display:inline-block; margin-bottom:18px; border-radius:2px; }
+  .dc h3 { font-size:26px; font-weight:normal; color:var(--white); margin-bottom:12px; }
+  .dc p { font-family:'Helvetica Neue',sans-serif; font-size:14px; line-height:1.7; color:rgba(255,255,255,.55); }
+  .dc-n { position:absolute; top:36px; right:38px; font-size:76px; color:rgba(255,255,255,.04); line-height:1; }
+
+  /* ── Floorplans ── */
+  .plans-section { background:var(--white); }
+  .pgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:28px; margin-top:56px; }
+  .pcard { border:1px solid var(--warm-gray); border-radius:4px; overflow:hidden;
+           transition:box-shadow .2s,transform .2s; display:flex; flex-direction:column; }
+  .pcard:hover { box-shadow:0 8px 32px rgba(0,0,0,.08); transform:translateY(-2px); }
+  .pphoto { height:230px; position:relative; overflow:hidden; cursor:pointer;
+            background:linear-gradient(135deg,#d8cfc4,#a89482); }
+  .pphoto img { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; transition:transform .4s ease; }
+  .pphoto:hover img { transform:scale(1.04); }
+  .pphoto-overlay { position:absolute; inset:0; background:rgba(0,0,0,0); display:flex;
+                    flex-direction:column; align-items:center; justify-content:center; gap:8px;
+                    transition:background .25s; z-index:2; }
+  .pphoto:hover .pphoto-overlay { background:rgba(0,0,0,.42); }
+  .pphoto-overlay span { font-family:'Helvetica Neue',sans-serif; font-size:11px; letter-spacing:.14em;
+                         text-transform:uppercase; color:#fff; opacity:0; transition:opacity .25s;
+                         border:1px solid rgba(255,255,255,.7); padding:9px 18px; border-radius:2px; }
+  .pphoto:hover .pphoto-overlay span { opacity:1; }
+  .pcount { position:absolute; top:14px; right:14px; z-index:3; background:rgba(20,19,15,.75);
+            color:#fff; font-family:'Helvetica Neue',sans-serif; font-size:11px; letter-spacing:.08em;
+            padding:5px 10px; border-radius:2px; }
+  .pbody { padding:28px 26px 26px; flex:1; display:flex; flex-direction:column; }
+  .pname { font-size:24px; font-weight:normal; margin-bottom:6px; }
+  .pmeta { font-family:'Helvetica Neue',sans-serif; font-size:12px; letter-spacing:.08em;
+           text-transform:uppercase; color:var(--text-light); margin-bottom:20px; }
+  .pprice { font-size:28px; color:var(--black); margin-bottom:4px; }
+  .pprice small { font-family:'Helvetica Neue',sans-serif; font-size:12px; color:var(--text-light);
+                  letter-spacing:.06em; text-transform:uppercase; }
+  .pfeat { list-style:none; margin:20px 0 24px; display:flex; flex-direction:column; gap:9px; }
+  .pfeat li { font-family:'Helvetica Neue',sans-serif; font-size:13.5px; color:var(--text-light);
+              display:flex; gap:10px; align-items:flex-start; line-height:1.5; }
+  .pfeat li::before { content:''; width:5px; height:5px; background:var(--brass); border-radius:50%;
+                      flex-shrink:0; margin-top:6px; }
+  .pcta { margin-top:auto; }
+
+  /* ── Availability ── */
+  .avail-sec { background:var(--off-white); }
+  .avail-table { margin-top:48px; border:1px solid var(--warm-gray); border-radius:4px;
+                 overflow:hidden; background:var(--white); }
+  .avail-head, .avail-row { display:grid; grid-template-columns:0.7fr 1.1fr 0.8fr 0.9fr 1fr 0.9fr; align-items:center; }
+  .avail-head { background:var(--black); }
+  .avail-head div { font-family:'Helvetica Neue',sans-serif; font-size:11px; letter-spacing:.12em;
+                    text-transform:uppercase; color:rgba(255,255,255,.75); padding:16px 20px; }
+  .avail-row { border-top:1px solid var(--warm-gray); transition:background .15s; }
+  .avail-row:hover { background:var(--accent-light); }
+  .avail-row div { padding:18px 20px; font-family:'Helvetica Neue',sans-serif; font-size:14px; }
+  .avail-unit { font-family:'Georgia',serif!important; font-size:17px!important; }
+  .pill { display:inline-block; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+          padding:5px 12px; border-radius:100px; font-weight:500; }
+  .pill-open { background:#e6f0e8; color:#2c5f3f; }
+  .pill-soon { background:#fdf1e3; color:#8a5a1c; }
+  .pill-occ  { background:var(--warm-gray); color:var(--text-light); }
+  .avail-link { color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; }
+  .avail-link:hover { border-bottom-color:var(--accent); }
+  .avail-note { font-family:'Helvetica Neue',sans-serif; font-size:13px; color:var(--text-light);
+                margin-top:20px; line-height:1.7; }
+
+  /* ── Contact ── */
+  .apply { background:var(--white); }
+  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-top:48px; align-items:start; }
+  .fields { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .field { display:flex; flex-direction:column; }
+  .field.full { grid-column:1/-1; }
+  .field label { font-family:'Helvetica Neue',sans-serif; font-size:11px; letter-spacing:.12em;
+                 text-transform:uppercase; color:var(--text-light); margin-bottom:8px; }
+  .field input, .field select, .field textarea {
+    font-family:'Helvetica Neue',sans-serif; font-size:15px; padding:13px 14px;
+    border:1px solid var(--warm-gray); border-radius:2px; background:var(--white);
+    color:var(--text); transition:border-color .2s; }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline:none; border-color:var(--accent); }
+  .field textarea { resize:vertical; min-height:120px; }
+  .req { color:var(--accent); }
+  .hint { font-family:'Helvetica Neue',sans-serif; font-size:12px; color:var(--text-light);
+          margin-top:-2px; margin-bottom:10px; }
+
+  /* choice groups — units (multi) & next step (single) */
+  .cgroup { border:1px solid var(--warm-gray); border-radius:2px; padding:16px 16px 6px; }
+  .cgroup-h { font-family:'Helvetica Neue',sans-serif; font-size:10px; letter-spacing:.14em;
+              text-transform:uppercase; color:var(--text-light); margin:6px 0 8px; }
+  .cgroup-h:first-child { margin-top:0; }
+  .cgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(112px,1fr)); gap:6px; margin-bottom:12px; }
+  .chip { position:relative; }
+  .chip input { position:absolute; opacity:0; pointer-events:none; }
+  .chip span { display:block; font-family:'Helvetica Neue',sans-serif; font-size:13px;
+               text-align:center; padding:9px 8px; border:1px solid var(--warm-gray);
+               border-radius:2px; cursor:pointer; transition:all .15s; color:var(--text-light);
+               background:var(--white); line-height:1.3; }
+  .chip span small { display:block; font-size:10.5px; opacity:.75; margin-top:2px; }
+  .chip span:hover { border-color:var(--accent); color:var(--text); }
+  .chip input:checked + span { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .chip input:focus-visible + span { outline:2px solid var(--accent); outline-offset:2px; }
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; }
+  .steps .chip span { text-align:left; padding:13px 14px; font-size:13.5px; }
+
+  .form-submit { margin-top:24px; }
+  button.btn-primary { border:none; cursor:pointer; font-size:12px; }
+  .form-status { font-family:'Helvetica Neue',sans-serif; font-size:14px; margin-top:16px; display:none; }
+  .form-status.ok { display:block; color:#2c5f3f; }
+  .form-status.err { display:block; color:#a12b2b; }
+  .contact-aside { background:var(--off-white); padding:40px 36px; border-radius:4px; }
+  .contact-aside h3 { font-size:22px; font-weight:normal; margin-bottom:20px; }
+  .ca-item { margin-bottom:24px; }
+  .ca-item span { display:block; font-family:'Helvetica Neue',sans-serif; font-size:11px;
+                  letter-spacing:.12em; text-transform:uppercase; color:var(--text-light); margin-bottom:6px; }
+  .ca-item a, .ca-item p { font-family:'Helvetica Neue',sans-serif; font-size:15px;
+                           color:var(--text); text-decoration:none; line-height:1.6; }
+  .ca-item a:hover { color:var(--accent); }
+
+  /* ── Footer ── */
+  footer { background:var(--black); color:rgba(255,255,255,.6); padding:56px 0 40px; }
+  .foot { max-width:1200px; margin:0 auto; padding:0 48px; display:flex;
+          justify-content:space-between; gap:32px; flex-wrap:wrap; align-items:flex-start; }
+  .foot p, .foot a { font-family:'Helvetica Neue',sans-serif; font-size:13px; line-height:1.8;
+                     color:rgba(255,255,255,.6); text-decoration:none; }
+  .foot a:hover { color:var(--white); }
+  .foot-brand { font-size:15px; letter-spacing:.12em; text-transform:uppercase; color:var(--white); margin-bottom:10px; }
+  .eho { margin-top:28px; padding-top:24px; border-top:1px solid rgba(255,255,255,.12);
+         max-width:1200px; margin-left:auto; margin-right:auto; padding-left:48px; padding-right:48px; }
+  .eho p { font-family:'Helvetica Neue',sans-serif; font-size:11.5px; color:rgba(255,255,255,.4); line-height:1.7; }
+
+  /* ── Lightbox ── */
+  .gb { position:fixed; inset:0; z-index:200; background:rgba(12,11,9,.96);
+        display:none; flex-direction:column; }
+  .gb.open { display:flex; }
+  .gb-bar { display:flex; align-items:center; justify-content:space-between; padding:20px 28px; gap:20px; }
+  .gb-title { font-family:'Helvetica Neue',sans-serif; font-size:13px; letter-spacing:.12em;
+              text-transform:uppercase; color:#fff; }
+  .gb-counter { font-family:'Helvetica Neue',sans-serif; font-size:12px; color:rgba(255,255,255,.55); }
+  .gb-close { background:none; border:none; color:#fff; font-size:26px; cursor:pointer; line-height:1; padding:4px 8px; }
+  .gb-stage { flex:1; position:relative; display:flex; align-items:center; justify-content:center; padding:0 70px; min-height:0; }
+  .gb-img { max-width:100%; max-height:100%; object-fit:contain; border-radius:2px; }
+  .gb-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.1);
+              border:none; color:#fff; font-size:22px; width:46px; height:46px; border-radius:50%;
+              cursor:pointer; transition:background .2s; }
+  .gb-arrow:hover { background:rgba(255,255,255,.24); }
+  .gb-prev { left:16px; } .gb-next { right:16px; }
+  .gb-caption { text-align:center; font-family:'Helvetica Neue',sans-serif; font-size:13px;
+                color:rgba(255,255,255,.7); padding:16px 28px 4px; min-height:20px; }
+  .gb-thumbs { display:flex; gap:8px; overflow-x:auto; padding:14px 28px 24px; justify-content:center; flex-wrap:nowrap; }
+  .gb-thumbs img { width:72px; height:52px; object-fit:cover; border-radius:2px; cursor:pointer;
+                   opacity:.45; transition:opacity .2s,outline-color .2s; outline:2px solid transparent; flex-shrink:0; }
+  .gb-thumbs img:hover { opacity:.8; }
+  .gb-thumbs img.on { opacity:1; outline-color:var(--brass); }
+  .gb-nophotos { color:rgba(255,255,255,.6); font-family:'Helvetica Neue',sans-serif;
+                 font-size:15px; text-align:center; line-height:1.8; }
+
+  /* ── Responsive ── */
+  @media (max-width:900px) {
+    nav { padding:16px 22px; }
+    .nav-links { position:fixed; top:60px; left:0; right:0; background:var(--white);
+                 flex-direction:column; gap:0; padding:0; max-height:0; overflow:hidden;
+                 transition:max-height .3s; border-bottom:1px solid var(--warm-gray); }
+    .nav-links.open { max-height:420px; }
+    .nav-links li { width:100%; border-top:1px solid var(--warm-gray); }
+    .nav-links a { display:block; padding:16px 22px; }
+    .nav-cta { text-align:center; margin:12px 22px; border-radius:2px; }
+    .nav-toggle { display:block; }
+    .hero { grid-template-columns:1fr; padding-top:60px; }
+    .hero-left { padding:56px 24px; }
+    .hero-right { min-height:340px; }
+    .stats-bar { grid-template-columns:1fr 1fr; }
+    .stat { border-bottom:1px solid var(--warm-gray); }
+    .stat:nth-child(2) { border-right:none; }
+    section { padding:64px 0; }
+    .si { padding:0 24px; }
+    .story-grid { grid-template-columns:1fr; gap:44px; }
+    .img-stack { height:400px; }
+    .feats { grid-template-columns:1fr; }
+    .nbhd-grid { grid-template-columns:1fr; }
+    .d-cards { grid-template-columns:1fr; }
+    .form-grid { grid-template-columns:1fr; gap:36px; }
+    .fields { grid-template-columns:1fr; }
+    .map-wrap { height:320px; }
+    .avail-head { display:none; }
+    .avail-row { grid-template-columns:1fr 1fr; padding:8px 0; }
+    .avail-row div { padding:8px 20px; }
+    .avail-row div::before { content:attr(data-l); display:block; font-size:10px;
+      letter-spacing:.12em; text-transform:uppercase; color:var(--text-light); margin-bottom:4px; }
+    .gb-stage { padding:0 12px; }
+    .gb-arrow { width:38px; height:38px; font-size:18px; }
+    .foot { flex-direction:column; gap:20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">799 Piedmont</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu">&#9776;</button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#building">The Building</a></li>
+    <li><a href="#neighborhood">Neighborhood</a></li>
+    <li><a href="#plans">Floorplans</a></li>
+    <li><a href="#availability">Availability</a></li>
+    <li><a href="#contact" class="nav-cta">Schedule a Tour</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Midtown Garden District · Atlanta</p>
+    <h1 class="hero-title">Turn-of-the-century<br>character.<br><em>Midtown</em><br>at your door.</h1>
+    <p class="hero-sub">Eleven apartments in a restored Midtown landmark — original millwork and
+      curved bay windows, rebuilt from the studs in 2023. Groceries two blocks south,
+      Piedmont Park a walk up the avenue.</p>
+    <div class="hero-actions">
+      <a href="#availability" class="btn-primary">View Availability</a>
+      <a href="#contact" class="btn-outline">Schedule a Tour</a>
+    </div>
+  </div>
+  <div class="hero-right" onclick="openGallery('building')">
+    <!-- PHOTO SLOT: hero exterior (the wide front elevation) → photos/building/exterior-front.jpg -->
+    <div class="ph"><strong>Front elevation</strong><span>Photo slot — hero</span></div>
+    <div class="hero-badge">
+      <p>799 Piedmont Ave NE</p>
+      <span>Atlanta, GA 30308</span>
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-n">11</div><div class="stat-l">Apartments</div></div>
+  <div class="stat"><div class="stat-n">2023</div><div class="stat-l">Fully Renovated</div></div>
+  <div class="stat"><div class="stat-n">94</div><div class="stat-l">Walk Score</div></div>
+  <div class="stat"><div class="stat-n">0.7 mi</div><div class="stat-l">To Emory Midtown</div></div>
+</div>
+
+<!-- ═══ BUILDING ═══ -->
+<section class="building" id="building">
+  <div class="si">
+    <div class="story-grid">
+      <div>
+        <p class="sl">The Building</p>
+        <h2 class="st">Old bones,<br>rebuilt right</h2>
+        <p class="sb">799 Piedmont began as a single grand residence in Atlanta's Garden District —
+          the curved corner tower, the ornate masonry, the tall windows all date from that era.
+          It was divided into apartments generations ago, and in 2023 it was taken back to the studs.</p>
+        <p class="sb">What came out of that renovation is unusual: brand-new systems and finishes
+          inside a building that still has its original character. Glass doorknobs and five-panel
+          doors were kept. Crown molding was restored, not replaced. The curved walls of the
+          tower units are exactly where they have always been.</p>
+        <ul class="feats">
+          <li>In-unit washer &amp; dryer in every home</li>
+          <li>Stainless appliances with gas ranges</li>
+          <li>Granite counters &amp; shaker cabinetry</li>
+          <li>Central heating and air</li>
+          <li>Original millwork &amp; glass hardware</li>
+          <li>Off-street parking on site</li>
+          <li>Restored hardwood &amp; wide-plank flooring</li>
+          <li>Private entrances on select homes</li>
+        </ul>
+      </div>
+      <div class="img-stack">
+        <div class="img-main" onclick="openGallery('building')">
+          <!-- PHOTO SLOT → photos/building/tower-detail.jpg -->
+          <div class="ph"><strong>Corner tower &amp; masonry</strong><span>Photo slot</span></div>
+        </div>
+        <div class="img-accent" onclick="openGallery('building')">
+          <!-- PHOTO SLOT → photos/building/entry-canopy.jpg -->
+          <div class="ph"><strong>Entry canopy</strong><span>Photo slot</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEIGHBORHOOD ═══ -->
+<section id="neighborhood">
+  <div class="si">
+    <p class="sl">The Neighborhood</p>
+    <h2 class="st">Midtown, on foot</h2>
+    <p class="sb">The Garden District sits on the quiet side of Midtown — tree-lined streets and
+      century-old houses — while everything Midtown is known for stays within a short walk.
+      You can leave the car parked.</p>
+
+    <div class="nbhd-grid">
+      <div class="nc">
+        <h3>Piedmont Park</h3>
+        <p>Atlanta's front lawn — 200 acres of green with the Active Oval, the Saturday
+          farmers market, and the Botanical Garden at its north end. Straight up Piedmont.</p>
+        <p class="dist">0.9 miles · 17 minute walk</p>
+      </div>
+      <div class="nc">
+        <h3>BeltLine Eastside Trail</h3>
+        <p>Three paved miles connecting Ponce City Market, Krog Street Market, and
+          Reynoldstown — easiest access east via Ponce City Market.</p>
+        <p class="dist">About 1 mile</p>
+      </div>
+      <div class="nc">
+        <h3>MARTA Rail</h3>
+        <p>North Avenue and Midtown stations both sit a short walk west on the Red and
+          Gold lines — Downtown, Buckhead, and a direct ride to the airport, no transfer.</p>
+        <p class="dist">North Avenue Station · under 1 mile</p>
+      </div>
+      <div class="nc">
+        <h3>Emory University Hospital Midtown</h3>
+        <p>Walk to work. One of the largest employers in the neighborhood, and close
+          enough to come home between shifts.</p>
+        <p class="dist">0.7 miles</p>
+      </div>
+      <div class="nc">
+        <h3>Georgia Tech</h3>
+        <p>West across Midtown, with the campus, research corridor, and Tech Square
+          startup district a short ride or bike away.</p>
+        <p class="dist">1.5 miles</p>
+      </div>
+      <div class="nc">
+        <h3>Arts &amp; Culture</h3>
+        <p>The Fox Theatre, the High Museum, Alliance Theatre, and the Woodruff Arts
+          Center all sit along the Peachtree corridor.</p>
+        <p class="dist">Under 1 mile</p>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps?q=799+Piedmont+Ave+NE,+Atlanta,+GA+30308&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Map of 799 Piedmont Ave NE, Atlanta"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DINING ═══ -->
+<section class="dining">
+  <div class="si">
+    <p class="sl">Around the Corner</p>
+    <h2 class="st">Walkable restaurants</h2>
+    <p class="sb">A 94 Walk Score is not marketing language — it means dinner, groceries, and
+      a night out are all things you do on foot from the front porch.</p>
+    <div class="d-cards">
+
+      <div class="dc"><span class="dc-n">01</span>
+        <span class="dc-tag">Groceries</span>
+        <h3>Publix</h3>
+        <p>Two blocks south on Piedmont. Full-size store, which means the weekly shop
+          never requires moving the car.</p>
+        <p class="dc-walk">595 Piedmont Ave · ~4 min walk</p>
+      </div>
+
+      <div class="dc"><span class="dc-n">02</span>
+        <span class="dc-tag">Southern · Since 1945</span>
+        <h3>Mary Mac's Tea Room</h3>
+        <p>Atlanta's dining room, and an institution for eight decades. Fried chicken,
+          pot likker, and the cornbread that comes whether you asked or not.</p>
+        <p class="dc-walk">224 Ponce de Leon Ave · ~10 min walk</p>
+      </div>
+
+      <div class="dc"><span class="dc-n">03</span>
+        <span class="dc-tag">Atlanta Landmark</span>
+        <h3>The Varsity</h3>
+        <p>The world's largest drive-in, at North Avenue since 1928. Chili dogs, onion
+          rings, and a frosted orange.</p>
+        <p class="dc-walk">61 North Ave · ~14 min walk</p>
+      </div>
+
+      <div class="dc"><span class="dc-n">04</span>
+        <span class="dc-tag">Brunch · Patio</span>
+        <h3>Einstein's</h3>
+        <p>The Juniper Street patio that Midtown brunch revolves around. Go early on a
+          Sunday or plan to wait with everyone else.</p>
+        <p class="dc-walk">1077 Juniper St · ~16 min walk</p>
+      </div>
+
+      <div class="dc"><span class="dc-n">05</span>
+        <span class="dc-tag">Neighborhood Bar</span>
+        <h3>Joe's on Juniper</h3>
+        <p>Burgers, a big covered patio, and the closest thing Midtown has to a proper
+          neighborhood hangout.</p>
+        <p class="dc-walk">1049 Juniper St · ~16 min walk</p>
+      </div>
+
+      <div class="dc"><span class="dc-n">06</span>
+        <span class="dc-tag">Southern · Upscale</span>
+        <h3>South City Kitchen</h3>
+        <p>Serving refined Southern cooking on Crescent Avenue since 1993. Where the
+          neighborhood goes for an occasion.</p>
+        <p class="dc-walk">1144 Crescent Ave · ~18 min walk</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FLOORPLANS ═══ -->
+<section class="plans-section" id="plans">
+  <div class="si">
+    <p class="sl">Floorplans</p>
+    <h2 class="st">Three ways to live here</h2>
+    <p class="sb">Every home was renovated to the same standard in 2023 — same appliances,
+      same finishes, same in-unit laundry. What changes is the footprint.</p>
+
+    <div class="pgrid">
+
+      <div class="pcard">
+        <div class="pphoto" onclick="openGallery('studio')">
+          <div class="ph"><strong>Studio</strong><span>Photo slot</span></div>
+          <div class="pphoto-overlay"><span>View Photos</span></div>
+          <div class="pcount" id="count-studio">Photos soon</div>
+        </div>
+        <div class="pbody">
+          <h3 class="pname">Studio</h3>
+          <p class="pmeta">500 sq ft · 1 bath · 1 home</p>
+          <p class="pprice">$1,050 <small>/ month</small></p>
+          <ul class="pfeat">
+            <li>The most affordable way into Midtown at this address</li>
+            <li>Full kitchen with gas range and dishwasher</li>
+            <li>In-unit washer and dryer</li>
+          </ul>
+          <div class="pcta"><a href="#contact" class="btn-outline">Inquire</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pphoto" onclick="openGallery('one-bed')">
+          <div class="ph"><strong>One Bedroom</strong><span>Photo slot</span></div>
+          <div class="pphoto-overlay"><span>View Photos</span></div>
+          <div class="pcount" id="count-one-bed">Photos soon</div>
+        </div>
+        <div class="pbody">
+          <h3 class="pname">One Bedroom</h3>
+          <p class="pmeta">704 sq ft · 1 bath · 9 homes</p>
+          <p class="pprice">From $1,475 <small>/ month</small></p>
+          <ul class="pfeat">
+            <li>Separate bedroom with closet, plus a full living room</li>
+            <li>Select homes have curved bay windows in the corner tower</li>
+            <li>Select homes have their own private entrance and porch</li>
+            <li>In-unit washer and dryer</li>
+          </ul>
+          <div class="pcta"><a href="#availability" class="btn-outline">See Available Homes</a></div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pphoto" onclick="openGallery('two-bed')">
+          <div class="ph"><strong>Two Bedroom</strong><span>Photo slot</span></div>
+          <div class="pphoto-overlay"><span>View Photos</span></div>
+          <div class="pcount" id="count-two-bed">Photos soon</div>
+        </div>
+        <div class="pbody">
+          <h3 class="pname">Two Bedroom</h3>
+          <p class="pmeta">1,133 sq ft · 1 bath · 1 home</p>
+          <p class="pprice">$2,685 <small>/ month</small></p>
+          <ul class="pfeat">
+            <li>The largest home in the building by a wide margin</li>
+            <li>Works as a two-bedroom or a one-bedroom with a study</li>
+            <li>In-unit washer and dryer</li>
+          </ul>
+          <div class="pcta"><a href="#contact" class="btn-outline">Inquire</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AVAILABILITY ═══ -->
+<section class="avail-sec" id="availability">
+  <div class="si">
+    <p class="sl">Availability</p>
+    <h2 class="st">What's open now</h2>
+    <p class="sb">Eleven homes, updated as they turn. If nothing below fits your timing,
+      send a note anyway — we keep a short list and reach out first when something opens.</p>
+
+    <div class="avail-table" id="avail-table">
+      <div class="avail-head">
+        <div>Unit</div><div>Type</div><div>Size</div><div>Rent</div><div>Status</div><div></div>
+      </div>
+      <!-- rows injected by script from UNITS[] -->
+    </div>
+    <p class="avail-note">Rents shown are current asking rates and are subject to change.
+      Square footage is approximate.</p>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="apply" id="contact">
+  <div class="si">
+    <p class="sl">Get in Touch</p>
+    <h2 class="st">Come see it</h2>
+    <p class="sb">Tours run by appointment, including evenings and weekends. Tell us what
+      you're looking for and we'll get back to you the same day where we can.</p>
+
+    <div class="form-grid">
+      <form id="lead-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="764229cb-3467-462b-9486-5d2867c254e3">
+        <input type="hidden" name="Units of Interest" id="f-units-out" value="">
+        <input type="hidden" name="subject" value="New inquiry — 799 Piedmont Apartments">
+        <input type="hidden" name="from_name" value="799 Piedmont Website">
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <div class="fields">
+          <div class="field">
+            <label for="f-first">First Name <span class="req">*</span></label>
+            <input type="text" id="f-first" name="First Name" required placeholder="Jane">
+          </div>
+          <div class="field">
+            <label for="f-last">Last Name <span class="req">*</span></label>
+            <input type="text" id="f-last" name="Last Name" required placeholder="Smith">
+          </div>
+          <div class="field">
+            <label for="f-email">Email <span class="req">*</span></label>
+            <input type="email" id="f-email" name="email" required placeholder="jane@example.com">
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input type="tel" id="f-phone" name="Phone" placeholder="(404) 555-0100">
+          </div>
+          <div class="field full">
+            <label for="f-movein">Preferred Move-In Date <span class="req">*</span></label>
+            <input type="date" id="f-movein" name="Preferred Move-In Date" required>
+          </div>
+
+          <div class="field full">
+            <label>Unit of Interest <span class="req">*</span></label>
+            <p class="hint">Select as many as you'd like — or "Any available" if you're flexible.</p>
+            <div class="cgroup" id="unit-picker">
+              <div class="cgrid">
+                <label class="chip"><input type="checkbox" data-unit="Any available home">
+                  <span>Any available<small>I'm flexible</small></span></label>
+              </div>
+              <p class="cgroup-h">Studio · 500 sq ft</p>
+              <div class="cgrid">
+                <label class="chip"><input type="checkbox" data-unit="Unit 11 — Studio">
+                  <span>Unit 11<small>$1,050</small></span></label>
+              </div>
+              <p class="cgroup-h">One Bedroom · 704 sq ft</p>
+              <div class="cgrid">
+                <label class="chip"><input type="checkbox" data-unit="Unit 1 — 1BR"><span>Unit 1<small>$2,000</small></span></label>
+                <label class="chip"><input type="checkbox" data-unit="Unit 2 — 1BR"><span>Unit 2<small>$1,850</small></span></label>
+                <label class="chip"><input type="checkbox" data-unit="Unit 3 — 1BR"><span>Unit 3<small>$1,800</small></span></label>
+                <label class="chip"><input type="checkbox" data-unit="Unit 4 — 1BR"><span>Unit 4<small>$1,550</small></span></label>
+                <label class="chip"><input type="checkbox" data-unit="Unit 5 — 1BR"><span>Unit 5<small>$1,850</small></span></label>
+                <label class="chip"><input type="checkbox" data-unit="Unit 6 — 1BR"><span>Unit 6<small>$1,800</small></span></label>
+                <label class="chip"><input type="checkbox" data-unit="Unit 8 — 1BR"><span>Unit 8<small>$1,800</small></span></label>
+                <label class="chip"><input type="checkbox" data-unit="Unit 9 — 1BR"><span>Unit 9<small>$1,800</small></span></label>
+                <label class="chip"><input type="checkbox" data-unit="Unit 10 — 1BR"><span>Unit 10<small>$1,475</small></span></label>
+              </div>
+              <p class="cgroup-h">Two Bedroom · 1,133 sq ft</p>
+              <div class="cgrid">
+                <label class="chip"><input type="checkbox" data-unit="Unit 7 — 2BR"><span>Unit 7<small>$2,685</small></span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field full">
+            <label>What would you like to do next? <span class="req">*</span></label>
+            <div class="steps">
+              <label class="chip"><input type="radio" name="Next Step" value="Schedule a tour" required>
+                <span>Schedule a tour</span></label>
+              <label class="chip"><input type="radio" name="Next Step" value="Apply now">
+                <span>Apply now</span></label>
+              <label class="chip"><input type="radio" name="Next Step" value="Join the waitlist">
+                <span>Join the waitlist</span></label>
+              <label class="chip"><input type="radio" name="Next Step" value="Just contact me">
+                <span>Just contact me</span></label>
+            </div>
+          </div>
+
+          <div class="field full">
+            <label for="f-msg">Anything else?</label>
+            <textarea id="f-msg" name="Message"
+              placeholder="Your timeline, whether you have pets, questions about parking — whatever's useful."></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn-primary" id="submit-btn">Send Inquiry</button>
+          <p class="form-status" id="form-status"></p>
+        </div>
+      </form>
+
+      <aside class="contact-aside">
+        <h3>799 Piedmont Apartments</h3>
+        <div class="ca-item">
+          <span>Address</span>
+          <p>799 Piedmont Ave NE<br>Atlanta, GA 30308</p>
+        </div>
+        <div class="ca-item">
+          <span>Email</span>
+          <a href="mailto:stuart@fourbrotherscarpentry.com">stuart@fourbrotherscarpentry.com</a>
+        </div>
+        <div class="ca-item">
+          <span>Phone</span>
+          <p>— add a leasing number —</p>
+        </div>
+        <div class="ca-item">
+          <span>Tours</span>
+          <p>By appointment, seven days a week</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div>
+      <p class="foot-brand">799 Piedmont</p>
+      <p>799 Piedmont Ave NE<br>Atlanta, GA 30308</p>
+    </div>
+    <div>
+      <p><a href="#building">The Building</a></p>
+      <p><a href="#neighborhood">Neighborhood</a></p>
+      <p><a href="#plans">Floorplans</a></p>
+    </div>
+    <div>
+      <p><a href="#availability">Availability</a></p>
+      <p><a href="#contact">Schedule a Tour</a></p>
+      <p><a href="mailto:stuart@fourbrotherscarpentry.com">Email us</a></p>
+    </div>
+  </div>
+  <div class="eho">
+    <p>Equal Housing Opportunity. We do not discriminate on the basis of race, color, religion,
+       sex, handicap, familial status, or national origin.</p>
+  </div>
+</footer>
+
+<!-- ═══ LIGHTBOX ═══ -->
+<div class="gb" id="gb" role="dialog" aria-modal="true" aria-label="Photo gallery">
+  <div class="gb-bar">
+    <span class="gb-title" id="gb-title"></span>
+    <span class="gb-counter" id="gb-counter"></span>
+    <button class="gb-close" id="gb-close" aria-label="Close gallery">&#10005;</button>
+  </div>
+  <div class="gb-stage" id="gb-stage">
+    <button class="gb-arrow gb-prev" id="gb-prev" aria-label="Previous photo">&#8592;</button>
+    <img class="gb-img" id="gb-img" src="" alt="">
+    <div class="gb-nophotos" id="gb-nophotos" style="display:none;">
+      Photos for this home are being added.<br>Email us and we'll send them straight over.
+    </div>
+    <button class="gb-arrow gb-next" id="gb-next" aria-label="Next photo">&#8594;</button>
+  </div>
+  <div class="gb-caption" id="gb-caption"></div>
+  <div class="gb-thumbs" id="gb-thumbs"></div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   PHOTOS
+   Drop web-optimised files into  photos/<folder>/  and list
+   them here. Empty arrays render a friendly "coming soon".
+   ═══════════════════════════════════════════════════════════ */
+const PHOTOS = {
+  'building': { title:'The Building', photos:[
+    // { src:'photos/building/exterior-front.jpg', caption:'Front elevation from Piedmont Ave' },
+  ]},
+  'studio':   { title:'Studio · 500 sq ft',        photos:[] },
+  'one-bed':  { title:'One Bedroom · 704 sq ft',   photos:[] },
+  'two-bed':  { title:'Two Bedroom · 1,133 sq ft', photos:[] },
+  'unit-1':   { title:'Unit 1 · One Bedroom',      photos:[] },
+  'unit-2':   { title:'Unit 2 · One Bedroom',      photos:[] },
+  'unit-3':   { title:'Unit 3 · One Bedroom',      photos:[] },
+  'unit-4':   { title:'Unit 4 · One Bedroom',      photos:[] },
+  'unit-5':   { title:'Unit 5 · One Bedroom',      photos:[] },
+  'unit-6':   { title:'Unit 6 · One Bedroom',      photos:[] },
+  'unit-7':   { title:'Unit 7 · Two Bedroom',      photos:[] },
+  'unit-8':   { title:'Unit 8 · One Bedroom',      photos:[] },
+  'unit-9':   { title:'Unit 9 · One Bedroom',      photos:[] },
+  'unit-10':  { title:'Unit 10 · One Bedroom',     photos:[] },
+  'unit-11':  { title:'Unit 11 · Studio',          photos:[] }
+};
+
+/* ═══════════════════════════════════════════════════════════
+   UNITS — availability table
+   status: 'open' | 'soon' | 'occupied'
+   ⚠ All set to 'occupied' as a safe default. Change the ones
+     that are actually available before this goes live.
+   ═══════════════════════════════════════════════════════════ */
+const UNITS = [
+  { n:1,  key:'unit-1',  type:'One Bedroom', sf:704,   rent:2000, status:'occupied', note:'Corner tower · bay windows' },
+  { n:2,  key:'unit-2',  type:'One Bedroom', sf:704,   rent:1850, status:'occupied', note:'Corner tower' },
+  { n:3,  key:'unit-3',  type:'One Bedroom', sf:704,   rent:1800, status:'occupied', note:'Private entrance · built-ins' },
+  { n:4,  key:'unit-4',  type:'One Bedroom', sf:704,   rent:1550, status:'occupied', note:'' },
+  { n:5,  key:'unit-5',  type:'One Bedroom', sf:704,   rent:1850, status:'occupied', note:'' },
+  { n:6,  key:'unit-6',  type:'One Bedroom', sf:704,   rent:1800, status:'occupied', note:'' },
+  { n:7,  key:'unit-7',  type:'Two Bedroom', sf:1133,  rent:2685, status:'occupied', note:'Largest home' },
+  { n:8,  key:'unit-8',  type:'One Bedroom', sf:704,   rent:1800, status:'occupied', note:'' },
+  { n:9,  key:'unit-9',  type:'One Bedroom', sf:704,   rent:1800, status:'occupied', note:'' },
+  { n:10, key:'unit-10', type:'One Bedroom', sf:704,   rent:1475, status:'occupied', note:'' },
+  { n:11, key:'unit-11', type:'Studio',      sf:500,   rent:1050, status:'occupied', note:'' }
+];
+
+const PILL = {
+  open:     ['pill-open','Available'],
+  soon:     ['pill-soon','Available Soon'],
+  occupied: ['pill-occ','Occupied']
+};
+
+/* Build availability rows */
+(function buildAvailability(){
+  const table = document.getElementById('avail-table');
+  const money = n => '$' + n.toLocaleString('en-US');
+  UNITS.forEach(u => {
+    const [cls,label] = PILL[u.status] || PILL.occupied;
+    const row = document.createElement('div');
+    row.className = 'avail-row';
+    const action = (u.status === 'occupied')
+      ? '<span style="color:var(--text-light)">—</span>'
+      : '<a class="avail-link" href="#contact">Inquire &rarr;</a>';
+    row.innerHTML =
+      `<div class="avail-unit" data-l="Unit">Unit ${u.n}</div>` +
+      `<div data-l="Type">${u.type}${u.note ? `<br><span style="font-size:12px;color:var(--text-light)">${u.note}</span>` : ''}</div>` +
+      `<div data-l="Size">${u.sf.toLocaleString('en-US')} sq ft</div>` +
+      `<div data-l="Rent">${money(u.rent)}</div>` +
+      `<div data-l="Status"><span class="pill ${cls}">${label}</span></div>` +
+      `<div data-l="">${action}</div>`;
+    row.addEventListener('click', e => {
+      if (e.target.tagName !== 'A') openGallery(u.key);
+    });
+    row.style.cursor = 'pointer';
+    table.appendChild(row);
+  });
+})();
+
+/* Cover photos + photo counts on floorplan cards */
+(function applyCovers(){
+  [['studio','count-studio'],['one-bed','count-one-bed'],['two-bed','count-two-bed']]
+  .forEach(([key,countId]) => {
+    const set = PHOTOS[key];
+    const el  = document.getElementById(countId);
+    if (!set || !set.photos.length) return;
+    el.textContent = set.photos.length + ' photos';
+    const card = el.closest('.pphoto');
+    const img  = document.createElement('img');
+    img.src = set.photos[0].src;
+    img.alt = set.title;
+    card.querySelector('.ph')?.remove();
+    card.prepend(img);
+  });
+  const b = PHOTOS['building'];
+  if (b && b.photos.length) {
+    const slot = document.querySelector('.hero-right');
+    const img  = document.createElement('img');
+    img.src = b.photos[0].src; img.alt = '799 Piedmont Ave NE';
+    slot.querySelector('.ph')?.remove();
+    slot.prepend(img);
+  }
+})();
+
+/* ── Lightbox ── */
+let gbSet = [], gbIdx = 0;
+const gb = document.getElementById('gb');
+
+function openGallery(key){
+  const set = PHOTOS[key];
+  if (!set) return;
+  gbSet = set.photos || [];
+  gbIdx = 0;
+  document.getElementById('gb-title').textContent = set.title;
+  gb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  render();
+}
+function closeGallery(){
+  gb.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function render(){
+  const has   = gbSet.length > 0;
+  const img   = document.getElementById('gb-img');
+  const none  = document.getElementById('gb-nophotos');
+  const thumbs= document.getElementById('gb-thumbs');
+
+  img.style.display  = has ? 'block' : 'none';
+  none.style.display = has ? 'none'  : 'block';
+  document.getElementById('gb-prev').style.display = gbSet.length > 1 ? 'block' : 'none';
+  document.getElementById('gb-next').style.display = gbSet.length > 1 ? 'block' : 'none';
+  document.getElementById('gb-counter').textContent = has ? `${gbIdx+1} / ${gbSet.length}` : '';
+  document.getElementById('gb-caption').textContent = has ? (gbSet[gbIdx].caption || '') : '';
+
+  if (has) { img.src = gbSet[gbIdx].src; img.alt = gbSet[gbIdx].caption || ''; }
+
+  thumbs.innerHTML = '';
+  if (gbSet.length > 1) {
+    gbSet.forEach((p,i) => {
+      const t = document.createElement('img');
+      t.src = p.src; t.alt = p.caption || '';
+      if (i === gbIdx) t.className = 'on';
+      t.addEventListener('click', () => { gbIdx = i; render(); });
+      thumbs.appendChild(t);
+    });
+  }
+}
+function step(d){
+  if (!gbSet.length) return;
+  gbIdx = (gbIdx + d + gbSet.length) % gbSet.length;
+  render();
+}
+document.getElementById('gb-close').addEventListener('click', closeGallery);
+document.getElementById('gb-prev').addEventListener('click', () => step(-1));
+document.getElementById('gb-next').addEventListener('click', () => step(1));
+gb.addEventListener('click', e => { if (e.target === gb || e.target.id === 'gb-stage') closeGallery(); });
+document.addEventListener('keydown', e => {
+  if (!gb.classList.contains('open')) return;
+  if (e.key === 'Escape')     closeGallery();
+  if (e.key === 'ArrowLeft')  step(-1);
+  if (e.key === 'ArrowRight') step(1);
+});
+/* swipe on touch devices */
+let tx = null;
+document.getElementById('gb-stage').addEventListener('touchstart', e => { tx = e.changedTouches[0].clientX; }, {passive:true});
+document.getElementById('gb-stage').addEventListener('touchend', e => {
+  if (tx === null) return;
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+  tx = null;
+}, {passive:true});
+
+/* ── Mobile nav ── */
+const navLinks = document.getElementById('nav-links');
+document.getElementById('nav-toggle').addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+/* ── Form ── */
+const unitBoxes = [...document.querySelectorAll('#unit-picker input[type=checkbox]')];
+const anyBox    = unitBoxes.find(b => b.dataset.unit === 'Any available home');
+
+/* "Any available" and specific units are mutually exclusive */
+unitBoxes.forEach(box => box.addEventListener('change', () => {
+  if (box === anyBox && box.checked) {
+    unitBoxes.forEach(b => { if (b !== anyBox) b.checked = false; });
+  } else if (box !== anyBox && box.checked) {
+    anyBox.checked = false;
+  }
+}));
+
+document.getElementById('lead-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const form   = e.target;
+  const btn    = document.getElementById('submit-btn');
+  const status = document.getElementById('form-status');
+
+  /* Roll the checked units into one readable field for the email */
+  const picked = unitBoxes.filter(b => b.checked).map(b => b.dataset.unit);
+  if (!picked.length) {
+    status.textContent = 'Please choose at least one unit — or "Any available".';
+    status.className = 'form-status err';
+    document.getElementById('unit-picker').scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
+  document.getElementById('f-units-out').value = picked.join(', ');
+
+  btn.disabled = true; btn.textContent = 'Sending…';
+  status.className = 'form-status';
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    const data = await res.json();
+    if (data.success) {
+      status.textContent = 'Thanks — we got it, and we\'ll be in touch shortly.';
+      status.className = 'form-status ok';
+      form.reset();
+    } else {
+      throw new Error(data.message || 'Submission failed');
+    }
+  } catch (err) {
+    status.textContent = 'Something went wrong. Please email stuart@fourbrotherscarpentry.com directly.';
+    status.className = 'form-status err';
+  } finally {
+    btn.disabled = false; btn.textContent = 'Send Inquiry';
+  }
+});
+</script>
+</body>
+</html>
