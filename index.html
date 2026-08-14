@@ -684,8 +684,8 @@
                 <span>Apply now</span></label>
               <label class="chip"><input type="radio" name="Next Step" value="Join the waitlist">
                 <span>Join the waitlist</span></label>
-              <label class="chip"><input type="radio" name="Next Step" value="Just contact me">
-                <span>Just contact me</span></label>
+              <label class="chip"><input type="radio" name="Next Step" value="I'm interested, let's talk">
+                <span>I&rsquo;m interested, let&rsquo;s talk</span></label>
             </div>
           </div>
 
@@ -774,21 +774,104 @@
    ═══════════════════════════════════════════════════════════ */
 const PHOTOS = {
   'building': { title:'The Building', photos:[
-    // { src:'photos/building/exterior-front.jpg', caption:'Front elevation from Piedmont Ave' },
+    { src:'photos/unit-1/Unit1-01.jpg',  caption:'Front elevation from Piedmont Ave' },
+    { src:'photos/unit-2/Unit2-01.jpg',  caption:'The corner tower' },
+    { src:'photos/unit-1/Unit1-12.jpg',  caption:'Rear of the building — off-street parking' },
   ]},
   'studio':   { title:'Studio · 500 sq ft',        photos:[] },
-  'one-bed':  { title:'One Bedroom · 704 sq ft',   photos:[] },
-  'two-bed':  { title:'Two Bedroom · 1,133 sq ft', photos:[] },
-  'unit-1':   { title:'Unit 1 · One Bedroom',      photos:[] },
-  'unit-2':   { title:'Unit 2 · One Bedroom',      photos:[] },
+  'one-bed':  { title:'One Bedroom · 704 sq ft',   photos:[
+    { src:'photos/unit-1/Unit1-02.jpg' }, { src:'photos/unit-1/Unit1-03.jpg' },
+    { src:'photos/unit-1/Unit1-04.jpg' }, { src:'photos/unit-1/Unit1-05.jpg' },
+    { src:'photos/unit-1/Unit1-06.jpg' }, { src:'photos/unit-1/Unit1-07.jpg' },
+    { src:'photos/unit-2/Unit2-02.jpg' }, { src:'photos/unit-2/Unit2-03.jpg' },
+    { src:'photos/unit-2/Unit2-04.jpg' }, { src:'photos/unit-2/Unit2-05.jpg' },
+  ]},
+  'two-bed':  { title:'Two Bedroom · 1,133 sq ft', photos:[
+    { src:'photos/unit-7/Unit7-01.jpg' }, { src:'photos/unit-7/Unit7-02.jpg' },
+    { src:'photos/unit-7/Unit7-03.jpg' }, { src:'photos/unit-7/Unit7-15.jpg' },
+    { src:'photos/unit-7/Unit7-16.jpg' }, { src:'photos/unit-7/Unit7-17.jpg' },
+  ]},
+  'unit-1':   { title:'Unit 1 · One Bedroom',      photos:[
+    { src:'photos/unit-1/Unit1-01.jpg' },
+    { src:'photos/unit-1/Unit1-02.jpg' },
+    { src:'photos/unit-1/Unit1-03.jpg' },
+    { src:'photos/unit-1/Unit1-04.jpg' },
+    { src:'photos/unit-1/Unit1-05.jpg' },
+    { src:'photos/unit-1/Unit1-06.jpg' },
+    { src:'photos/unit-1/Unit1-07.jpg' },
+    { src:'photos/unit-1/Unit1-08.jpg' },
+    { src:'photos/unit-1/Unit1-09.jpg' },
+    { src:'photos/unit-1/Unit1-10.jpg' },
+    { src:'photos/unit-1/Unit1-11.jpg' },
+    { src:'photos/unit-1/Unit1-12.jpg' },
+  ]},
+  'unit-2':   { title:'Unit 2 · One Bedroom',      photos:[
+    { src:'photos/unit-2/Unit2-01.jpg' },
+    { src:'photos/unit-2/Unit2-02.jpg' },
+    { src:'photos/unit-2/Unit2-03.jpg' },
+    { src:'photos/unit-2/Unit2-04.jpg' },
+    { src:'photos/unit-2/Unit2-05.jpg' },
+    { src:'photos/unit-2/Unit2-06.jpg' },
+  ]},
   'unit-3':   { title:'Unit 3 · One Bedroom',      photos:[] },
   'unit-4':   { title:'Unit 4 · One Bedroom',      photos:[] },
   'unit-5':   { title:'Unit 5 · One Bedroom',      photos:[] },
-  'unit-6':   { title:'Unit 6 · One Bedroom',      photos:[] },
-  'unit-7':   { title:'Unit 7 · Two Bedroom',      photos:[] },
+  'unit-6':   { title:'Unit 6 · One Bedroom',      photos:[
+    { src:'photos/unit-6/Unit6-01.jpg' },
+    { src:'photos/unit-6/Unit6-02.jpg' },
+    { src:'photos/unit-6/Unit6-03.jpg' },
+    { src:'photos/unit-6/Unit6-04.jpg' },
+    { src:'photos/unit-6/Unit6-05.jpg' },
+    { src:'photos/unit-6/Unit6-06.jpg' },
+    { src:'photos/unit-6/Unit6-07.jpg' },
+    { src:'photos/unit-6/Unit6-08.jpg' },
+    { src:'photos/unit-6/Unit6-09.jpg' },
+    { src:'photos/unit-6/Unit6-10.jpg' },
+    { src:'photos/unit-6/Unit6-11.jpg' },
+    { src:'photos/unit-6/Unit6-12.jpg' },
+    { src:'photos/unit-6/Unit6-13.jpg' },
+  ]},
+  'unit-7':   { title:'Unit 7 · Two Bedroom',      photos:[
+    { src:'photos/unit-7/Unit7-01.jpg' },
+    { src:'photos/unit-7/Unit7-02.jpg' },
+    { src:'photos/unit-7/Unit7-03.jpg' },
+    { src:'photos/unit-7/Unit7-04.jpg' },
+    { src:'photos/unit-7/Unit7-05.jpg' },
+    { src:'photos/unit-7/Unit7-06.jpg' },
+    { src:'photos/unit-7/Unit7-07.jpg' },
+    { src:'photos/unit-7/Unit7-08.jpg' },
+    { src:'photos/unit-7/Unit7-09.jpg' },
+    { src:'photos/unit-7/Unit7-10.jpg' },
+    { src:'photos/unit-7/Unit7-11.jpg' },
+    { src:'photos/unit-7/Unit7-12.jpg' },
+    { src:'photos/unit-7/Unit7-13.jpg' },
+    { src:'photos/unit-7/Unit7-14.jpg' },
+    { src:'photos/unit-7/Unit7-15.jpg' },
+    { src:'photos/unit-7/Unit7-16.jpg' },
+    { src:'photos/unit-7/Unit7-17.jpg' },
+    { src:'photos/unit-7/Unit7-18.jpg' },
+    { src:'photos/unit-7/Unit7-19.jpg' },
+  ]},
   'unit-8':   { title:'Unit 8 · One Bedroom',      photos:[] },
-  'unit-9':   { title:'Unit 9 · One Bedroom',      photos:[] },
-  'unit-10':  { title:'Unit 10 · One Bedroom',     photos:[] },
+  'unit-9':   { title:'Unit 9 · One Bedroom',      photos:[
+    { src:'photos/unit-9/Unit9-01.jpg' },
+    { src:'photos/unit-9/Unit9-02.jpg' },
+    { src:'photos/unit-9/Unit9-03.jpg' },
+    { src:'photos/unit-9/Unit9-04.jpg' },
+    { src:'photos/unit-9/Unit9-05.jpg' },
+    { src:'photos/unit-9/Unit9-06.jpg' },
+    { src:'photos/unit-9/Unit9-07.jpg' },
+    { src:'photos/unit-9/Unit9-08.jpg' },
+    { src:'photos/unit-9/Unit9-09.jpg' },
+    { src:'photos/unit-9/Unit9-10.jpg' },
+    { src:'photos/unit-9/Unit9-11.jpg' },
+    { src:'photos/unit-9/Unit9-12.jpg' },
+    { src:'photos/unit-9/Unit9-13.jpg' },
+    { src:'photos/unit-9/Unit9-14.jpg' },
+  ]},
+  'unit-10':  { title:'Unit 10 · One Bedroom',     photos:[
+    { src:'photos/unit-10/Unit10-01.jpg' },
+  ]},
   'unit-11':  { title:'Unit 11 · Studio',          photos:[] }
 };
 
