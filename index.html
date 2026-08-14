@@ -733,7 +733,7 @@
 
     <div class="form-grid">
       <form id="lead-form" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="764229cb-3467-462b-9486-5d2867c254e3">
+        <input type="hidden" name="access_key" value="3ffb3ebf-b47a-4c11-bee2-e937b06d2ddb">
         <input type="hidden" name="Units of Interest" id="f-units-out" value="">
         <input type="hidden" name="subject" value="New inquiry — 799 Piedmont Apartments">
         <input type="hidden" name="from_name" value="799 Piedmont Website">
@@ -813,7 +813,6 @@
               placeholder="Your timeline, whether you have pets, questions about parking — whatever's useful."></textarea>
           </div>
         </div>
-        <div class="h-captcha" data-captcha="true" style="margin-top:20px;"></div>
         <div class="form-submit">
           <button type="submit" class="btn-primary" id="submit-btn">Send Inquiry</button>
           <p class="form-status" id="form-status"></p>
@@ -1260,15 +1259,6 @@ document.getElementById('lead-form').addEventListener('submit', async e => {
   }
   document.getElementById('f-units-out').value = picked.join(', ');
 
-  /* hCaptcha must be completed — Web3Forms rejects the submission without it */
-  const hcaptchaResponse = form.querySelector('textarea[name="h-captcha-response"]')?.value;
-  if (!hcaptchaResponse) {
-    status.textContent = 'Please complete the "I am human" check above before sending.';
-    status.className = 'form-status err';
-    form.querySelector('.h-captcha')?.scrollIntoView({behavior:'smooth', block:'center'});
-    return;
-  }
-
   btn.disabled = true; btn.textContent = 'Sending…';
   status.className = 'form-status';
   try {
@@ -1282,7 +1272,6 @@ document.getElementById('lead-form').addEventListener('submit', async e => {
       status.textContent = 'Thanks — we got it, and we\'ll be in touch shortly.';
       status.className = 'form-status ok';
       form.reset();
-      if (window.hcaptcha) hcaptcha.reset();
     } else {
       throw new Error(data.message || 'Submission failed');
     }
@@ -1294,6 +1283,5 @@ document.getElementById('lead-form').addEventListener('submit', async e => {
   }
 });
 </script>
-<script src="https://web3forms.com/client/script.js" async defer></script>
 </body>
 </html>
