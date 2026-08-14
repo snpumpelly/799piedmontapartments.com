@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>799 Piedmont Apartments — Midtown, Atlanta</title>
-<meta name="description" content="Eleven renovated apartments in Midtown Atlanta's Garden District. Studio, one, and two bedroom homes steps from Piedmont Park and the BeltLine.">
+<meta name="description" content="Eleven renovated apartments in Midtown Atlanta's Garden District. Studio, one, and two bedroom homes an easy walk from Piedmont Park and the BeltLine.">
 <style>
   :root {
     --black:#14130f; --white:#ffffff; --off-white:#faf8f5;
@@ -331,7 +331,7 @@
 <div class="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">Midtown Garden District · Atlanta</p>
-    <h1 class="hero-title">Turn-of-the-century<br>character.<br><em>Midtown</em><br>at your door.</h1>
+    <h1 class="hero-title">Classic character,<br>built in 1958.<br><em>Renewed</em><br>from the studs.</h1>
     <p class="hero-sub">Eleven apartments in a restored Midtown landmark — original millwork and
       curved bay windows, rebuilt from the studs in 2023. Groceries two blocks south,
       Piedmont Park a walk up the avenue.</p>
@@ -363,21 +363,21 @@
     <div class="story-grid">
       <div>
         <p class="sl">The Building</p>
-        <h2 class="st">Old bones,<br>rebuilt right</h2>
-        <p class="sb">799 Piedmont began as a single grand residence in Atlanta's Garden District —
-          the curved corner tower, the ornate masonry, the tall windows all date from that era.
-          It was divided into apartments generations ago, and in 2023 it was taken back to the studs.</p>
+        <h2 class="st">Built in 1958,<br>renewed for now</h2>
+        <p class="sb">799 Piedmont has stood in the Garden District since 1958 — the curved corner
+          tower, paneled masonry, and tall windows give it a presence you don't see in most
+          Midtown buildings its age. In 2023, it was taken back to the studs and rebuilt.</p>
         <p class="sb">What came out of that renovation is unusual: brand-new systems and finishes
-          inside a building that still has its original character. Glass doorknobs and five-panel
+          inside a building that kept its original character. Glass doorknobs and five-panel
           doors were kept. Crown molding was restored, not replaced. The curved walls of the
           tower units are exactly where they have always been.</p>
         <ul class="feats">
-          <li>In-unit washer &amp; dryer in every home</li>
+          <li>In-unit washer &amp; dryer — every home</li>
           <li>Stainless appliances with gas ranges</li>
           <li>Granite counters &amp; shaker cabinetry</li>
-          <li>Central heating and air</li>
+          <li>Central HVAC — every home</li>
           <li>Original millwork &amp; glass hardware</li>
-          <li>Off-street parking on site</li>
+          <li>Free off-street parking on site</li>
           <li>Restored hardwood &amp; wide-plank flooring</li>
           <li>Private entrances on select homes</li>
         </ul>
@@ -402,7 +402,7 @@
     <p class="sl">The Neighborhood</p>
     <h2 class="st">Midtown, on foot</h2>
     <p class="sb">The Garden District sits on the quiet side of Midtown — tree-lined streets and
-      century-old houses — while everything Midtown is known for stays within a short walk.
+      historic homes — while everything Midtown is known for stays within a short walk.
       You can leave the car parked.</p>
 
     <div class="nbhd-grid">
@@ -887,7 +887,7 @@ const UNITS = [
   { n:3,  key:'unit-3',  type:'One Bedroom', sf:704,   rent:1800, status:'occupied', note:'Private entrance · built-ins' },
   { n:4,  key:'unit-4',  type:'One Bedroom', sf:704,   rent:1550, status:'occupied', note:'' },
   { n:5,  key:'unit-5',  type:'One Bedroom', sf:704,   rent:1850, status:'occupied', note:'' },
-  { n:6,  key:'unit-6',  type:'One Bedroom', sf:704,   rent:1800, status:'occupied', note:'' },
+  { n:6,  key:'unit-6',  type:'One Bedroom', sf:704,   rent:1800, status:'open', note:'' },
   { n:7,  key:'unit-7',  type:'Two Bedroom', sf:1133,  rent:2685, status:'occupied', note:'Largest home' },
   { n:8,  key:'unit-8',  type:'One Bedroom', sf:704,   rent:1800, status:'occupied', note:'' },
   { n:9,  key:'unit-9',  type:'One Bedroom', sf:704,   rent:1800, status:'occupied', note:'' },
@@ -949,6 +949,19 @@ const PILL = {
     img.src = b.photos[0].src; img.alt = '799 Piedmont Ave NE';
     slot.querySelector('.ph')?.remove();
     slot.prepend(img);
+  }
+  /* Building section's own two-photo stack */
+  if (b && b.photos.length) {
+    const fill = (sel, photo) => {
+      if (!photo) return;
+      const el = document.querySelector(sel);
+      const img = document.createElement('img');
+      img.src = photo.src; img.alt = photo.caption || '799 Piedmont';
+      el.querySelector('.ph')?.remove();
+      el.prepend(img);
+    };
+    fill('.img-main',   b.photos[1] || b.photos[0]);
+    fill('.img-accent', b.photos[2] || b.photos[0]);
   }
 })();
 
