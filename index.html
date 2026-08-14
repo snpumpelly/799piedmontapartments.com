@@ -68,6 +68,56 @@
 }
 </script>
 
+<!-- Mirrors the visible FAQ section — must be kept in sync with it -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How close is 799 Piedmont to Piedmont Park?",
+      "acceptedAnswer": { "@type": "Answer", "text": "About 0.9 miles, roughly a 17-minute walk up Piedmont Ave. The block itself scores 94 on Walk Score — a Walker's Paradise — so groceries, restaurants, and MARTA are all closer than the park." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is parking included?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — free off-street parking on site for residents, at no additional cost." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there laundry in the unit?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Every home has its own in-unit washer and dryer. There's no shared laundry room to schedule around." }
+    },
+    {
+      "@type": "Question",
+      "name": "How old is the building?",
+      "acceptedAnswer": { "@type": "Answer", "text": "799 Piedmont has stood in the Garden District since 1958. It was taken back to the studs and fully renovated in 2023 — new systems and finishes inside, original character kept intact." }
+    },
+    {
+      "@type": "Question",
+      "name": "What unit types are available?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Eleven homes total: one studio (500 sq ft), nine one-bedrooms (704 sq ft), and one two-bedroom (1,133 sq ft)." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I schedule a tour or apply?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Use the contact form on the website — choose Schedule a tour, Apply now, Join the waitlist, or I'm interested, let's talk. Replies typically come the same day, and tours run seven days a week by appointment." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best way to reach 799 Piedmont Apartments?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The contact form is fastest. There is no listed phone number — every inquiry through the form gets a personal reply, usually the same day." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a grocery store nearby?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Publix is about a 4-minute walk south on Piedmont Ave — a full-size store, so the weekly shop doesn't require a car." }
+    }
+  ]
+}
+</script>
+
 <style>
   :root {
     --black:#14130f; --white:#ffffff; --off-white:#faf8f5;
@@ -300,6 +350,26 @@
                            color:var(--text); text-decoration:none; line-height:1.6; }
   .ca-item a:hover { color:var(--accent); }
 
+  /* ── FAQ ── */
+  .faq-section { background:var(--off-white); }
+  .faq-list { max-width:760px; margin-top:48px; border-top:1px solid var(--warm-gray); }
+  .faq-item { border-bottom:1px solid var(--warm-gray); }
+  .faq-item summary {
+    list-style:none; cursor:pointer; padding:22px 34px 22px 0; position:relative;
+    font-size:18px; font-family:'Georgia',serif; color:var(--text);
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+  }
+  .faq-item summary::-webkit-details-marker { display:none; }
+  .faq-item summary::after {
+    content:'+'; position:absolute; right:2px; top:50%; transform:translateY(-50%);
+    font-size:22px; line-height:1; color:var(--accent); font-family:'Helvetica Neue',sans-serif;
+    transition:transform .2s;
+  }
+  .faq-item[open] summary::after { transform:translateY(-50%) rotate(45deg); }
+  .faq-item summary:hover { color:var(--accent); }
+  .faq-a { font-family:'Helvetica Neue',sans-serif; font-size:15px; line-height:1.75;
+           color:var(--text-light); max-width:640px; padding:0 34px 26px 0; }
+
   /* ── Footer ── */
   footer { background:var(--black); color:rgba(255,255,255,.6); padding:56px 0 40px; }
   .foot { max-width:1200px; margin:0 auto; padding:0 48px; display:flex;
@@ -386,6 +456,7 @@
     <li><a href="#neighborhood">Neighborhood</a></li>
     <li><a href="#plans">Floorplans</a></li>
     <li><a href="#availability">Availability</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Schedule a Tour</a></li>
   </ul>
 </nav>
@@ -767,6 +838,72 @@
           <p>The form — we reply the same day where we can.</p>
         </div>
       </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq-section" id="faq">
+  <div class="si">
+    <p class="sl">Good to Know</p>
+    <h2 class="st">Frequently asked<br>questions</h2>
+    <p class="sb">The most common questions we get before a tour. Don't see yours? Ask through
+      the form above.</p>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>How close is 799 Piedmont to Piedmont Park?</summary>
+        <p class="faq-a">About 0.9 miles, roughly a 17-minute walk up Piedmont Ave. The
+          block itself scores 94 on Walk Score — a Walker's Paradise — so groceries,
+          restaurants, and MARTA are all closer than the park.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is parking included?</summary>
+        <p class="faq-a">Yes — free off-street parking on site for residents, at no
+          additional cost.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is there laundry in the unit?</summary>
+        <p class="faq-a">Every home has its own in-unit washer and dryer. There's no
+          shared laundry room to schedule around.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How old is the building?</summary>
+        <p class="faq-a">799 Piedmont has stood in the Garden District since 1958. It was
+          taken back to the studs and fully renovated in 2023 — new systems and finishes
+          inside, original character kept intact.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What unit types are available?</summary>
+        <p class="faq-a">Eleven homes total: one studio (500 sq ft), nine one-bedrooms
+          (704 sq ft), and one two-bedroom (1,133 sq ft). See the
+          <a href="#availability">availability table</a> for current pricing and what's open now.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I schedule a tour or apply?</summary>
+        <p class="faq-a">Use the form above — choose "Schedule a tour," "Apply now," "Join
+          the waitlist," or "I'm interested, let's talk," whichever fits. We reply the
+          same day where we can, and tours run seven days a week by appointment.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What's the best way to reach you?</summary>
+        <p class="faq-a">The contact form is fastest. We don't list a phone number — every
+          inquiry through the form gets a personal reply, usually the same day.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is there a grocery store nearby?</summary>
+        <p class="faq-a">Publix is about a 4-minute walk south on Piedmont Ave — a
+          full-size store, so the weekly shop doesn't require a car.</p>
+      </details>
+
     </div>
   </div>
 </section>
